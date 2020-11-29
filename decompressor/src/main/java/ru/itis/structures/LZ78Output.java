@@ -13,8 +13,8 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LZ78Output {
-    private List<LZ78Node> nodes;
-    private Integer alphabetSize;
-    private Integer dictSize;
-    private Map<Integer, Integer> alphabetMap;
+    private List<LZ78Node> nodes; // Массив нод
+    private Integer alphabetSize; // Размер алфавита
+    private Integer dictSize; // Размер словаря
+    private Map<Integer, Integer> alphabetMap; // Словарь старых кодов и новых
 }

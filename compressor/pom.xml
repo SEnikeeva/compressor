@@ -16,6 +16,13 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.akathist.maven.plugins.launch4j/launch4j-maven-plugin -->
+        <dependency>
+            <groupId>com.akathist.maven.plugins.launch4j</groupId>
+            <artifactId>launch4j-maven-plugin</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.beust/jcommander -->
         <dependency>

@@ -26,17 +26,17 @@ public class Main {
 
         FileReader fileReader = new FileReader();
         BitsSaver bitsSaver = new BitsSaver();
-        List<Integer> fileInts = fileReader.getIntArrayOfFile(mainArg.input);
+        List<Integer> fileInts = fileReader.getIntArrayOfFile(mainArg.input); // Считываем посимвольно исходный файл
 
         LZ78 lz78 = new LZ78();
 
-        LZ78Output result = lz78.encode(fileInts);
+        LZ78Output result = lz78.encode(fileInts); // Кодируем с помощью LZ78
 
 
 
-        List<Integer> bitsArray = lz78.toBitsArray(result);
+        List<Integer> bitsArray = lz78.toBitsArray(result); // Результат переводим в двоичный код
 
-        bitsSaver.lz78Save(bitsArray, mainArg.output);
+        bitsSaver.lz78Save(bitsArray, mainArg.output); // Сохраняем в файл
 
     }
 

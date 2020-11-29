@@ -25,9 +25,9 @@ public class Main {
                 .build()
                 .parse(args);
         LZ78 lz78 = new LZ78();
-        LZ78Output lz78Output = new FileReader().read7Z78(mainArg.input);
-        List<Integer> decoded = lz78.decode(lz78Output);
-        new FileWriter().writeDecompressed(decoded, mainArg.output);
+        LZ78Output lz78Output = new FileReader().read7Z78(mainArg.input); // Считываем закодированный файл
+        List<Integer> decoded = lz78.decode(lz78Output); // Декодируем
+        new FileWriter().writeDecompressed(decoded, mainArg.output); // Записываем декодированный лист символов в файл
     }
 
 }

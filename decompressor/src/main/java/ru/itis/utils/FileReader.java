@@ -16,13 +16,13 @@ public class FileReader {
         int dictB;
         List<Integer> bits = new ArrayList<>();
         try (DataInputStream is = new DataInputStream(new FileInputStream(new File(filepath)))) {
-            fileSize = is.readInt();
-            abcSize = is.readInt();
-            dSize = is.readInt();
-            alphabetB = (int) (Math.log(abcSize) / Math.log(2)) + 1;
-            dictB = (int) (Math.log(dSize) / Math.log(2)) + 1;
+            fileSize = is.readInt(); // Считываем размер файла
+            abcSize = is.readInt(); // размер алфавита
+            dSize = is.readInt(); // размер словаря
+            alphabetB = (int) (Math.log(abcSize) / Math.log(2)) + 1; // Вычисляем количество бит, которыми закодированы символы алфавита
+            dictB = (int) (Math.log(dSize) / Math.log(2)) + 1; // Вычисляем количество бит, которыми закодированы позиции в словаре
             int symbol;
-            while ((symbol = is.read()) != -1) {
+            while ((symbol = is.read()) != -1) { // Преобразуем файл в двоичный код
                 for (char sym:
                         toBinary(symbol).toCharArray() ) {
                     bits.add(Integer.parseInt(String.valueOf(sym)));
@@ -31,7 +31,7 @@ public class FileReader {
         }
 
         Map<Integer, Integer> alphabetMap = new HashMap<>();
-        for (int i = 0; i < (alphabetB + 32) * abcSize; i += (alphabetB + 32)) {
+        for (int i = 0; i < (alphabetB + 32) * abcSize; i += (alphabetB + 32)) { // Считываем словарь кодов алфавита
             StringBuilder str = new StringBuilder();
             for (int j = 0; j < 32; j++) {
                 str.append(bits.get(i + j));
@@ -46,7 +46,7 @@ public class FileReader {
         }
 
         List<LZ78Node> nodes = new ArrayList<>();
-        for (int i = (alphabetB + 32) * abcSize; i < fileSize; i += (alphabetB + dictB)) {
+        for (int i = (alphabetB + 32) * abcSize; i < fileSize; i += (alphabetB + dictB)) { // Считываем ноды
             StringBuilder str = new StringBuilder();
             for (int j = 0; j < dictB; j++) {
                 str.append(bits.get(i + j));
