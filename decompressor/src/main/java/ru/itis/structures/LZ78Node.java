@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LZ78Node {
-    private Integer pos;
-    private Integer next;
+    private Integer pos; // Позиция в словаре
+    private Integer next; // Следующий символ
 }

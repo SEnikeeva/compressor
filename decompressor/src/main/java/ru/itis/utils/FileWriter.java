@@ -8,7 +8,7 @@ public class FileWriter {
 
     public void writeDecompressed(List<Integer> words, String filename) throws IOException {
         StringBuilder stringWords = new StringBuilder();
-        for (Integer i : words) {
+        for (Integer i : words) { // Заисываем результат посимвольно в файл
             if (i != null) {
                 stringWords.append((char) i.intValue());
             }
